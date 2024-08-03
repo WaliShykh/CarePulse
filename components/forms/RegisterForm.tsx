@@ -27,7 +27,6 @@ const RegisterForm = ( { user }: { user: User}) => {
 
   const form = useForm<z.infer<typeof PatientFormValidation>>({
     resolver: zodResolver(PatientFormValidation),
-   //@ts-ignore
     defaultValues: PatientFormDefaultValues,
   });
 
@@ -62,7 +61,7 @@ const RegisterForm = ( { user }: { user: User}) => {
   
       if(patient) {
         console.log("Patient registered successfully", patient);
-        router.push(`/patient/${user.$id}/new-appointments`);
+        router.push(`/patients/${user.$id}/new-appointment`);
       } else {
         console.error("Failed to register patient");
       }
